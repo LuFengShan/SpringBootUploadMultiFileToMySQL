@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload Multiple Files</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.14.0/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+ 
+<body>
+	<div class="container h-100">
+	<div class="h-100">
+		<div class="row h-100 justify-content-center align-items-center">
+			<div class="col-sm-5">
+				<h3>上传多个文件到MySQL</h3>
+				<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+					<div class="form-group">
+						<label class="control-label" for="files">Upload Multiple Files:</label>
+						<input type="file" class="form-control" id="files" 
+								placeholder="Upload Multiple Files"  name="files" multiple></input>
+					</div>
+					<button type="submit" class="btn btn-default" id="btnSubmit">上传</button>
+					<a href="/files" class="btn btn-default" role="button">列出所有文件</a>
+				</form>
+				<div th:if="${message}">
+					<strong><span th:text="${message}"/></strong>
+					<hr>
+				</div>
+				<ul th:each="filename: ${files}">
+					<li><span th:text="${filename}"/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

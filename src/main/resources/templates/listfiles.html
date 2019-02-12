@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload Multiple Files to MySQL</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.14.0/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container h-100">
+		<div class="row h-100 justify-content-center align-items-center">
+			<div class="col-md-7 table-responsive">
+				<h2>已经上传的文件列表</h2>
+				<table id="customerTable" class="table">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>文件名字</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="file, rowStat: ${files}">
+					        <td th:text="${rowStat.count}">1</td>
+							<td th:text="${file.filename}">File-Name</td>
+					        <td><a th:href="${file.url}">下载</a></td>
+					    </tr>
+					</tbody>
+				</table>
+				<div>
+					<a href="/" class="btn btn-light btn-block" role="button">返回上传页面</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
